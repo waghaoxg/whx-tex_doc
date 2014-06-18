@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{ {\CJKfamily {zhhei}жпнд}}{5}{0}{1}
+\beamer@sectionintoc {2}{Basic}{8}{0}{2}
+\beamer@sectionintoc {3}{Conclusion}{34}{0}{3}
+\beamer@subsectionintoc {3}{1}{SubConclusion}{34}{0}{3}

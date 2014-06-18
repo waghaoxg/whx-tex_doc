@@ -1,0 +1,110 @@
+\documentclass[a4paper, twocolumn, 10pt]{article}
+\usepackage{sectsty} %set section headling
+\usepackage{ctex}     % using chinese
+\usepackage{subcaption}  %using subfigure
+\usepackage{indentfirst}  %first par indent
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+%\usepackage{pdfsync}
+
+\addtolength{\textheight}{1in}
+\addtolength{\voffset}{-0.7in}
+
+\addtolength{\textwidth}{1in}
+\addtolength{\hoffset}{-0.5in}
+
+\setlength{\columnsep}{2ex}
+\setlength{\parindent}{2em}
+
+\allsectionsfont{\CJKfamily{hei}\centering\color{red}}
+\subsectionfont{\CJKfamily{kai}\flushbottom\color{green}}
+
+\definecolor{myGray}{RGB}{100,100,100}
+\definecolor{myBlue}{RGB}{80,80,255}
+
+\linespread{1}                 %1.3: 1   1.6:2
+\setlength{\parskip}{1ex}   
+
+\begin{document}
+\title{我的例子还行吗}
+  \author{\small haoxing wang}
+  \date{}
+  \maketitle
+  \section{介绍：生产流程}\label{sec:intro}
+  本章是介绍。为了能最终生成的pdf文件中正确复制中文与图片,需要分两步生成pdf。
+
+  dvi $\Rightarrow$ pdf
+  
+  \begin{description}
+	\item[生成dvi] latex file.tex得到file.dvi.
+	\item[生成pdf] dvipdfm file.dvi得到file.pdf
+  \end{description}
+    生成dvi时需要使用eps文件。将png转换为eps的方法： 使用bmeps。
+
+	为了能使pdf文件中图片能粘贴出来，需要提供图片的boundingbox文件pic.bb。
+
+  \begin{description}
+	\item[生成.bb文件] bmeps -b pic.png pic.bb
+	\item[生成彩色.eps文件] bmeps -c pic.png pic.eps
+  \end{description}
+	这样得到的eps文件在最终转换中才能正确地粘贴出来。	
+
+  为了保持正常的hyperlink,并且图片粘贴也正确,考虑使用``\verb=\documentclass[dvipdfm]{article}=''。
+  \begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+	\includegraphics[width=1\linewidth]{model_img}
+	\caption{}
+	%\phantomsubcaption
+	\label{subfig:source_img}
+	\end{subfigure}\hspace{1em}
+	\begin{subfigure}[b]{0.4\linewidth}
+	\includegraphics[width=1\linewidth]{target_img}
+	\caption{}
+	%\phantomsubcaption
+	\label{subfig:target_img}
+	\end{subfigure}\hspace{1em}
+	\caption{images from Google Street View. (\subref{subfig:source_img}) Source image. (\subref{subfig:target_img})  Target image.} 
+	\label{fig:origin_global}
+  \end{figure}
+  \section{第一章}
+  这是第一章，看一个引用\ref{sec:intro}。
+
+  \begin{table}[h]
+  \begin{tabular}{c|ccc}
+  \hline
+  \hline
+	12 & 23 & 34 & 45 \\
+	12 & 23 & 34 & 45 \\
+  \hline
+  \end{tabular}
+  \caption{例子表格}
+  \end{table}
+
+\subsection{第一节}
+  这是第一节。看一个引用\cite{Wei2010}。
+\begin{equation} \begin{split}
+E\left( {x\left| {{I^s},{I^t},{R^s}} \right.} \right) = \sum\limits_{i \in G } {{\psi _i}\left( {{x_i}|\Delta {I_i},{R^s}} \right)}\\ + \sum\limits_{(i,j) \in E}{ {{\phi _{ij}}\left( {{x_i},{x_j}|I_i^t,I_j^t} \right)} } 
+\end{split}
+\vspace{-0.8em}
+\end{equation}
+
+\newpage
+第二列。
+\newpage
+\thispagestyle{empty}
+开始了第二页。
+
+\bibdata
+
+
+kankan
+{\small
+\bibliographystyle{ieee}
+\bibliography{ref}
+}
+\end{document}
+
+% compile with bittex: 1. latex/pdflatex myexample.tex  2. bibtex myexample.aux  3 and 4. latex/pdflatex myexample.tex

@@ -1,0 +1,24 @@
+\frametitle{Counter Intro}
+\begin{block}{Latex counter}
+\tiny
+\begin{verbatim}
+\newcounter{mycounter}  \\init to 0.
+\setcounter{mycounter}{value}   \\ set mycounter to value
+\addtocounter{mycounter}{value}   \\ mycounter + value, can be negtive.
+\themycounter \\ print mycounter out.
+\value{mycounter}  \\get the counter value, can be used in latex
+PS:  \newcounter method has global behave.
+\end{verbatim}
+\end{block}
+\begin{block}{Tex counterpart:}
+\tiny
+\begin{verbatim}
+\newcount\mycounter
+\mycounter <value>\relax
+\advance\mycounter <value>\relax
+\the\counter
+\counter
+PS: \newcount works locally
+\end{verbatim}
+\end{block}
+Latex counter is prefertable.

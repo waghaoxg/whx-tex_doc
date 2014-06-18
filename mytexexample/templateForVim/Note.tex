@@ -1,0 +1,41 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass[a4paper,10pt]{article}
+\usepackage{sectsty} %set section headling
+\usepackage{ctex}     % using chinese
+\usepackage{subcaption}  %using subfigure
+\usepackage{indentfirst}  %first par indent
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+\usepackage{pdfsync}
+
+\addtolength{\textheight}{1in}
+\addtolength{\voffset}{-0.7in}
+
+\addtolength{\textwidth}{1in}
+\addtolength{\hoffset}{-0.5in}
+
+%\setlength{\columnsep}{2ex}
+%\setlength{\parindent}{2em}
+
+%\allsectionsfont{\CJKfamily{hei}\centering\color{red}}
+%\subsectionfont{\CJKfamily{kai}\flushbottom\color{green}}
+
+\definecolor{alert}{RGB}{255,80,80}
+\definecolor{structure}{RGB}{80,80,255}
+\definecolor{comment}{RGB}{80,80,80}
+\definecolor{example}{RGB}{80,255,80}
+
+\linespread{1}                 %1.3: 1   1.6:2
+\setlength{\parskip}{1ex}   
+
+\begin{document}
+<++>
+\end{document}
+
+% compile with bittex: 1. latex/pdflatex myexample.tex  2. bibtex myexample.aux  3 and 4. latex/pdflatex myexample.tex

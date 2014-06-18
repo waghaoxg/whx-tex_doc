@@ -1,0 +1,137 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+
+\documentclass[compress,aspectratio=43,11pt]{beamer}
+\usepackage{ctex}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{verbatim}
+\usepackage{multimedia}
+
+\pdfstringdefDisableCommands{  %hack the hyperref support CJK
+\let\CJK@XX\relax
+\let\CJK@XXX\relax
+\let\CJK@XXXp\relax
+\let\CJK@XXXX\relax
+\let\CJK@XXXXp\relax
+}
+
+%------------ for headline theme--------------
+%\begin{comment}   
+
+\usetheme{Ilmenau}    %default, Antibes, Bergen, Berkeley, Boadilla, boxes, CambridgeUS, Darmstadt, Singapore, Luebeck,Ilmenau...
+\useoutertheme{miniframes} %smoothbars, split, tree, default, infolines, miniframes, sidebar...
+\usecolortheme{whale}
+\useinnertheme{rectangles}
+
+%\setbeamersize{mini frame size=0em}
+%\setbeamersize{mini frame offset=1em}
+
+\setbeamertemplate{frametitle}
+{
+  \vskip -0.455em     %set height position
+  \begin{beamercolorbox}[ht=1.2em,wd=\paperwidth]{frametitle}   %set frametitle box
+       \strut\insertframetitle\strut
+  \end{beamercolorbox}
+}
+
+%\end{comment}
+%------------ for headline theme--------------
+
+%------------ for siderbar theme--------------
+\begin{comment}   
+
+\usetheme{Berkeley}    %default, Antibes, Bergen, Berkeley, Boadilla, boxes, CambridgeUS, Darmstadt, Singapore, Luebeck,Ilmenau...
+\useoutertheme{sidebar} %smoothbars, split, tree, default, infolines, miniframes, sidebar...
+\usecolortheme{whale}
+\useinnertheme{rectangles}
+% for side bar
+\setbeamertemplate{frametitle}
+{
+  \vskip -0.535em     %set height position
+  \begin{beamercolorbox}[height=1.2em,wd=1\paperwidth]{frametitle}   %set frametitle box
+       \strut\Large\insertframetitle\strut
+  \end{beamercolorbox}
+}
+\setbeamersize{sidebar width left=1.5cm}
+\setbeamertemplate{headline}{} % swith the footline
+\setbeamertemplate{siderbar left}{}
+
+\makeatletter
+  \setbeamertemplate{sidebar \beamer@sidebarside}%{sidebar theme}
+  {
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -6pt%
+    \insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+}%
+\makeatother
+
+\end{comment}
+%------------ for siderbar theme--------------
+
+%------------ for thesis theme--------------
+\begin{comment}   
+% for TorinoTh thesis
+\usetheme[language=english,
+titlepagelogo=logopolito,
+bullet=circle,
+pageofpages=of,
+titleline=true,
+color=blue
+]{TorinoTh}
+
+\definecolor{myblue}{RGB}{0,162,238}
+\definecolor{myred}{RGB}{241,74,45}
+\definecolor{mygreen}{RGB}{20,155,82}
+\setbeamertemplate{frametitle}
+{
+  \vspace{-0.3em}
+  \flushleft\insertframetitle{\centering{\vspace{-0.8em}\color{myblue}\hspace{0em}\rule{\columnwidth}{0.8pt}}}
+}
+
+\rel{导师}
+\ateneo{自动化}
+\date{\today}
+\end{comment}
+%------------ for thesis theme--------------
+
+\setbeamercovered{transparent}
+\setbeamertemplate{footline}{} % swith the footline
+%\setbeamertemplate{navigation symbols}{} % switch the symbols
+%\logo{\includegraphics[height=0.8cm]{Pic}}
+
+\title{My Beamer Template}
+\author{HX wang}
+
+\begin{document}
+\frame[plain]{\titlepage}
+
+\frame{\frametitle{Content}\tableofcontents[pausesections,hideallsubsections]}
+
+<++>
+
+\end{document}
+
+%\usetheme{Warsaw} The full list of themes is:
+%	  Antibes Bergen Berkeley Berlin Copenhagen Darmstadt Dresden Frankfurt Goettingen Hannover Ilmenau * JuanLesPins Luebeck Madrid Malmoe Marburg Montpellier PaloAlto Pittsburgh Rochester Singapore Szeged Warsaw boxes default 
+
+%\usecolortheme{beaver} The full list of color themes is:
+%	  default albatross beaver beetle crane dolphin dove fly lily orchid rose seagull seahorse whale wolverine
+
+%\useoutertheme{infolines} Here is a list of all available outer themes:
+%  infolines miniframes shadow sidebar smoothbars smoothtree split tree
+
+%\useinnertheme{rectangles} Here is a list of all available inner themes:
+%	  rectangles circles inmargin rounded
+

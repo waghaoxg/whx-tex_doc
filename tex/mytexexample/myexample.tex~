@@ -1,0 +1,85 @@
+\documentclass[a4paper, twocolumn, 11pt]{article}
+\usepackage{sectsty} %set section headling
+\usepackage{CJK}     % using chinese
+\usepackage{subcaption}  %using subfigure
+\usepackage{indentfirst}  %first par indent
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+%\setlength{\textheight}{}
+%\setlength{\textwidth}{}
+\setlength{\columnsep}{2ex}
+
+\setlength{\parindent}{2em}
+
+\allsectionsfont{\CJKfamily{hei}\centering\color{red}}
+\subsectionfont{\sffamily\flushbottom\color{green}}
+
+\begin{document}
+\begin{CJK*}{GBK}{song}%set default font
+  \title{例子}
+  \author{\small haoxing wang}
+  \date{}
+  \maketitle
+  \section{介绍}\label{sec:intro}
+  本章是介绍。
+
+  \begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+	\includegraphics[width=1\linewidth]{model_img}
+	\caption{}
+	%\phantomsubcaption
+	\label{subfig:source_img}
+	\end{subfigure}\hspace{1em}
+	\begin{subfigure}[b]{0.4\linewidth}
+	\includegraphics[width=1\linewidth]{target_img}
+	\caption{}
+	%\phantomsubcaption
+	\label{subfig:target_img}
+	\end{subfigure}\hspace{1em}
+	\caption{images from Google Street View. (\subref{subfig:source_img}) Source image. (\subref{subfig:target_img})  Target image.} 
+	\label{fig:origin_global}
+  \end{figure}
+  \section{第一章}
+  这是第一章\ref{sec:intro}。
+
+  \begin{table}[h]
+  \begin{tabular}{c|ccc}
+  \hline
+  \hline
+	12 & 23 & 34 & 45 \\
+	12 & 23 & 34 & 45 \\
+  \hline
+  \end{tabular}
+  \caption{例子表格}
+  \end{table}
+
+\subsection{第一节}
+  这是第一节。看一个引用\cite{Wei2010}。
+\begin{equation} \begin{split}
+E\left( {x\left| {{I^s},{I^t},{R^s}} \right.} \right) = \sum\limits_{i \in G } {{\psi _i}\left( {{x_i}|\Delta {I_i},{R^s}} \right)}\\ + \sum\limits_{(i,j) \in E}{ {{\phi _{ij}}\left( {{x_i},{x_j}|I_i^t,I_j^t} \right)} } 
+\end{split}
+\vspace{-0.8em}
+\end{equation}
+
+\newpage
+第二列。
+\newpage
+\thispagestyle{empty}
+开始了第二页。
+
+\bibdata
+
+
+\end{CJK*}
+kankan
+{\small
+\bibliographystyle{ieee}
+\bibliography{ref}
+}
+\end{document}
+
+% compile with bittex: 1. latex/pdflatex myexample.tex  2. bibtex myexample.aux  3 and 4. latex/pdflatex myexample.tex
